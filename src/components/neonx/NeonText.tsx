@@ -4,58 +4,47 @@ import { cn } from "@/lib/utils";
 
 type NeonTextProps = {
   children: React.ReactNode;
+  as?: React.ElementType;
   className?: string;
   color?: 'green' | 'pink' | 'blue' | 'yellow' | 'gradient';
-  as?: keyof JSX.IntrinsicElements;
-  glowing?: boolean;
 } & React.HTMLAttributes<HTMLElement>;
 
 export const NeonText = ({ 
-  children, 
+  children,
+  as: Component = 'span', 
   className, 
   color = 'green',
-  as: Component = 'span',
-  glowing = true,
   ...props 
 }: NeonTextProps) => {
-  const colorClasses = {
-    green: "text-neonx-green",
-    pink: "text-neonx-pink",
-    blue: "text-neonx-blue",
-    yellow: "text-neonx-yellow",
-    gradient: "bg-gradient-to-r from-neonx-green to-neonx-blue bg-clip-text text-transparent"
-  };
   
-  const glowingClasses = {
-    green: glowing ? "text-shadow-neon-green" : "",
-    pink: glowing ? "text-shadow-neon-pink" : "",
-    blue: glowing ? "text-shadow-neon-blue" : "",
-    yellow: glowing ? "text-shadow-neon-yellow" : "",
-    gradient: ""
+  const getTextClasses = () => {
+    switch (color) {
+      case 'green':
+        return 'text-neonx-green drop-shadow-[0_0_3px_rgba(0,255,140,0.7)]';
+      case 'pink':
+        return 'text-neonx-pink drop-shadow-[0_0_3px_rgba(255,60,165,0.7)]';
+      case 'blue':
+        return 'text-neonx-blue drop-shadow-[0_0_3px_rgba(0,163,255,0.7)]';
+      case 'yellow':
+        return 'text-neonx-yellow drop-shadow-[0_0_3px_rgba(255,214,0,0.7)]';
+      case 'gradient':
+        return 'bg-gradient-to-r from-neonx-green to-neonx-blue bg-clip-text text-transparent';
+      default:
+        return 'text-neonx-green drop-shadow-[0_0_3px_rgba(0,255,140,0.7)]';
+    }
   };
-  
+
   return (
     <Component
       className={cn(
-        colorClasses[color],
-        glowingClasses[color],
+        getTextClasses(),
         className
-      )}
+      )} 
       {...props}
     >
       {children}
     </Component>
   );
-};
-
-export const createTextShadow = (color: string, intensity: number = 1) => {
-  return `
-    @layer utilities {
-      .text-shadow-${color} {
-        text-shadow: 0 0 ${5 * intensity}px ${color}, 0 0 ${10 * intensity}px ${color};
-      }
-    }
-  `;
 };
 
 export default NeonText;
