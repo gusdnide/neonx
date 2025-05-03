@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
-import { ArrowRight, Check, Search, Activity, AlertTriangle, Info, X } from 'lucide-react';
+import { ArrowRight, Check, Search, Activity, AlertTriangle, Info, X, Github } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { 
   Button,
   Card,
@@ -41,7 +42,9 @@ const Index = () => {
             </div>
             <div className="flex items-center gap-3">
               <Badge variant="success">v1.0.0</Badge>
-              <Button size="sm" variant="outline">Documentation</Button>
+              <Link to="/github">
+                <Button size="sm" variant="outline" icon={<Github size={16} />}>GitHub</Button>
+              </Link>
             </div>
           </div>
           <div className="text-center py-16">
@@ -55,7 +58,9 @@ const Index = () => {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Button icon={<ArrowRight size={16} />}>Get Started</Button>
-              <Button variant="outline">View on GitHub</Button>
+              <Link to="/github">
+                <Button variant="outline" icon={<Github size={16} />}>View on GitHub</Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -469,7 +474,7 @@ const Index = () => {
               <div>
                 <h3 className="text-sm font-semibold mb-2">Resources</h3>
                 <ul className="space-y-1">
-                  <li><a className="text-neonx-light-gray text-sm hover:text-white" href="#">GitHub</a></li>
+                  <li><Link to="/github" className="text-neonx-light-gray text-sm hover:text-white">GitHub</Link></li>
                   <li><a className="text-neonx-light-gray text-sm hover:text-white" href="#">NPM Package</a></li>
                   <li><a className="text-neonx-light-gray text-sm hover:text-white" href="#">Support</a></li>
                 </ul>

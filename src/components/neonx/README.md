@@ -169,6 +169,22 @@ NeonX uses a carefully crafted color palette:
 ## 🚀 Getting Started
 
 ```bash
+# Clone the repository
+git clone https://github.com/yourusername/neonx-ui.git
+
+# Navigate to the project directory
+cd neonx-ui
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+## 📦 Installation in Your Project
+
+```bash
 # Install the package
 npm install neonx-ui
 
@@ -178,6 +194,12 @@ import 'neonx-ui/dist/style.css'
 # Import components
 import { Button, Card } from 'neonx-ui'
 ```
+
+## 🔗 Links
+
+- [GitHub Repository](https://github.com/yourusername/neonx-ui)
+- [Documentation](https://neonx-ui.github.io)
+- [NPM Package](https://www.npmjs.com/package/neonx-ui)
 
 ## 📜 License
 

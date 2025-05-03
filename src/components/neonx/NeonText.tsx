@@ -7,7 +7,7 @@ type NeonTextProps = {
   as?: React.ElementType;
   className?: string;
   color?: 'green' | 'pink' | 'blue' | 'yellow' | 'gradient';
-} & React.HTMLAttributes<HTMLElement>;
+};
 
 export const NeonText = ({ 
   children,
@@ -15,7 +15,7 @@ export const NeonText = ({
   className, 
   color = 'green',
   ...props 
-}: NeonTextProps) => {
+}: NeonTextProps & React.HTMLAttributes<HTMLElement>) => {
   
   const getTextClasses = () => {
     switch (color) {
