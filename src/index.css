@@ -1,101 +1,138 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 240 17% 6%;
+    --foreground: 0 0% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 222 15% 13%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 222 15% 13%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 160 92% 50%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 10% 16%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 10% 16%;
+    --muted-foreground: 240 5% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 336 95% 56%;
+    --accent-foreground: 0 0% 95%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 240 10% 16%;
+    --input: 240 10% 16%;
+    --ring: 160 92% 50%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 240 17% 6%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 160 92% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 240 10% 16%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 240 10% 16%;
+    --sidebar-ring: 160 92% 50%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* NeonX Custom Components */
+  .neonx-card {
+    @apply bg-neonx-card bg-opacity-70 backdrop-filter backdrop-blur-md border border-neonx-gray border-opacity-50 rounded-lg p-4 shadow-lg;
+  }
+
+  .neonx-glass {
+    @apply bg-opacity-20 backdrop-filter backdrop-blur-lg border border-white border-opacity-10 shadow-lg;
+  }
+
+  .neonx-gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-neonx-green to-neonx-blue;
+  }
+
+  .neonx-terminal {
+    @apply bg-neonx-dark rounded-md border border-neonx-gray p-4 font-mono text-sm text-neonx-green;
+  }
+
+  .neonx-button {
+    @apply flex items-center justify-center gap-2 px-4 py-2 font-semibold transition-all duration-200 rounded-md;
+  }
+
+  .neonx-button-primary {
+    @apply neonx-button bg-neonx-green text-neonx-dark hover:shadow-neon-green;
+  }
+
+  .neonx-button-secondary {
+    @apply neonx-button bg-neonx-gray text-white hover:bg-opacity-80;
+  }
+
+  .neonx-button-danger {
+    @apply neonx-button bg-neonx-pink text-white hover:shadow-neon-pink;
+  }
+
+  .neonx-progress {
+    @apply h-2 w-full bg-neonx-gray rounded-full overflow-hidden;
+  }
+
+  .neonx-progress-bar {
+    @apply h-full bg-gradient-to-r from-neonx-green to-neonx-blue rounded-full transition-all duration-300;
+  }
+
+  .neonx-badge {
+    @apply inline-flex items-center text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+
+  .neonx-badge-success {
+    @apply neonx-badge bg-neonx-green text-black;
+  }
+
+  .neonx-badge-warning {
+    @apply neonx-badge bg-neonx-yellow text-black;
+  }
+
+  .neonx-badge-danger {
+    @apply neonx-badge bg-neonx-pink text-white;
+  }
+
+  .neonx-badge-info {
+    @apply neonx-badge bg-neonx-blue text-white;
+  }
+
+  .neonx-scanning-effect {
+    @apply relative overflow-hidden;
+  }
+
+  .neonx-scanning-effect::after {
+    content: '';
+    @apply absolute left-0 w-full h-[2px] bg-neonx-green bg-opacity-50 animate-scanning-line;
+  }
+
+  .neonx-glow-text {
+    text-shadow: 0 0 10px rgba(12, 252, 131, 0.7);
+  }
+
+  .neonx-sidebar-item {
+    @apply flex items-center gap-2 px-3 py-2 rounded-md text-white hover:bg-neonx-gray transition-colors duration-200;
+  }
+
+  .neonx-sidebar-item.active {
+    @apply bg-neonx-gray text-neonx-green;
   }
 }
